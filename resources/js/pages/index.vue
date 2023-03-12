@@ -1,13 +1,20 @@
 <template>
-    <div>123</div>
+    <div>{{user}}</div>
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+  import { ref, computed } from 'vue'
+  import { useStore } from 'vuex'
 
-export default defineComponent({
+
+export default {
     setup() {
-        
-    },
-})
+        const store = useStore()
+        store.dispatch("user/fetchUser")
+        const user = computed(() => store.getters["user/getUser"]);
+        return {
+            user
+        }
+    }
+}
 </script>
