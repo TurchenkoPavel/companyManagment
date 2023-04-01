@@ -1,27 +1,19 @@
 <template>
-    <div>{{user}}</div>
-    <div>{{someData}}</div>
+    <header class="flex">
+        <ul class="columns-2">
+            <li>
+                <router-link to="login">login</router-link>
+                <router-link to="register">register</router-link>
+            </li>
+        </ul>
+    </header>
 </template>
 
 <script>
-  import { ref, computed } from 'vue'
-  import { useStore } from 'vuex'
-  import axios from 'axios'
-
 
 export default {
     setup() {
-        const store = useStore()
-        store.dispatch("user/fetchUser")
-        const user = computed(() => store.getters["user/getUser"]);
-        let someData = ref();
-        axios.get("https://finalspaceapi.com/api/v0/character/?limit=2").then(({data}) => {
-            someData.value = data;
-        })
-        return {
-            user,
-            someData
-        }
+        
     }
 }
 </script>

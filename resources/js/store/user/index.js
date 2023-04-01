@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const state = () => ({
     user: null
 })
@@ -11,8 +13,12 @@ const mutations = {
 
 const actions = {
     fetchUser: (context) => {
-        context.commit('setUser')
-    }
+
+        // axios.get('/get-user').then(response => {
+            // Login...
+        // });
+        // context.commit('setUser')
+    },
 }
 
 const user  = {

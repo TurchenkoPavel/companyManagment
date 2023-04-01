@@ -6,6 +6,8 @@ import router from '@/router'
 import store from '@/store'
 import '@/plugins/axios.js'
 
+import '../css/app.css'
+
 import App from './App.vue'
 
 createApp(App)
