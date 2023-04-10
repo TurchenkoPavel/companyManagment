@@ -11,7 +11,6 @@ axios.defaults.headers.common['Access-Control-Request-Methods'] = 'GET, POST, PU
 axios.defaults.headers.common['Access-Control-Max-Age'] = '240';
 
 axios.interceptors.request.use(config => {
-   console.log(config.method, cookies.get('XSRF-TOKEN'));
     if ((
       config.method == 'post' || 
       config.method == 'put' || 
@@ -19,7 +18,6 @@ axios.interceptors.request.use(config => {
       /* other methods you want to add here */
    ) &&
       !cookies.get('XSRF-TOKEN')) {
-         console.log(123);
       return axiosInstance.get('/sanctum/csrf-cookie')
          .then(response => config);
    }
